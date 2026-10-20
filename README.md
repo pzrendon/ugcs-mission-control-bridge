@@ -1,3 +1,4 @@
+<img width="2878" height="1464" alt="image" src="https://github.com/user-attachments/assets/8d08892f-d2b7-4c98-819f-f26fa85ea849" />
 # UgCS Mission Control Bridge
 
 ## Engineering Overview
