@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UgCS WebApp Bridge</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>UgCS WebApp Bridge</h1>
+      <p class="subtitle">
+        Browser UI -> Node.js backend -> Java SDK bridge -> UgCS
+      </p>
+
+      <!-- Health/status panel to quickly verify backend connectivity -->
+      <section class="card">
+        <h2>System Status</h2>
+        <button id="refreshHealthButton">Refresh Health</button>
+        <pre id="healthOutput">Loading health...</pre>
+      </section>
+
+      <!-- Mission + vehicle selection for route upload -->
+      <section class="card">
+        <h2>Mission Upload</h2>
+        <div class="row">
+          <label for="vehicleSelect">Vehicle</label>
+          <select id="vehicleSelect"></select>
+        </div>
+        <div class="row">
+          <label for="missionSelect">Mission Plan (Route)</label>
+          <select id="missionSelect"></select>
+        </div>
+        <div class="row">
+          <button id="refreshListsButton">Refresh Missions & Vehicles</button>
+          <button id="uploadMissionButton">Upload Selected Mission</button>
+        </div>
+        <pre id="missionOutput">Waiting for action...</pre>
+      </section>
+
+      <!-- Direct command controls requested: arm, takeoff, RTH, land -->
+      <section class="card">
+        <h2>Direct Commands</h2>
+        <div class="row">
+          <label for="takeoffAltitudeInput">Takeoff Altitude (m, optional)</label>
+          <input id="takeoffAltitudeInput" type="number" value="30" min="1" />
+        </div>
+        <div class="row">
+          <button data-command="arm" class="commandButton">Arm</button>
+          <button data-command="takeoff" class="commandButton">Takeoff</button>
+          <button data-command="rth" class="commandButton">RTH</button>
+          <button data-command="land" class="commandButton">Land</button>
+        </div>
+        <pre id="commandOutput">Waiting for action...</pre>
+      </section>
+
+      <!-- Live telemetry area auto-refreshes on an interval -->
+      <section class="card">
+        <h2>Live Telemetry</h2>
+        <div class="row">
+          <button id="refreshTelemetryButton">Refresh Now</button>
+          <label for="autoRefreshToggle">Auto Refresh (2s)</label>
+          <input id="autoRefreshToggle" type="checkbox" checked />
+        </div>
+        <pre id="telemetryOutput">Loading telemetry...</pre>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

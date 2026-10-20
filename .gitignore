@@ -1,0 +1,35 @@
+## Local SQLite and app data
+data/
+
+## Node.js dependencies and logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+## Environment files (keep secrets out of Git)
+.env
+
+## Build outputs
+dist/
+build/
+target/
+.runtime/
+
+## IDE / OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Additional local environment files
+.env.*
+!.env.example
+
+# Local portfolio preparation notes
+PORTFOLIO_REVIEW_NOTES.md
+
+# Historical internal handoff documentation
+ARCHITECTURE_LEGACY.md

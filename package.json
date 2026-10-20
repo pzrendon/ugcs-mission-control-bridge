@@ -1,0 +1,29 @@
+{
+  "name": "ugcs-webapp-bridge",
+  "version": "1.0.0",
+  "description": "Standalone web app bridge between browser UI and UgCS via Node.js + Java SDK.",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.js",
+    "start:backend": "node backend/server.js",
+    "start:mock": "node ugcs/mock-server.js",
+    "build:java": "mvn -f java-bridge/pom.xml clean package",
+    "start:java": "mvn -f java-bridge/pom.xml exec:java"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.8.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "node-mavlink": "^2.3.0",
+    "serialport": "^12.0.0",
+    "ws": "^8.18.0"
+  },
+  "overrides": {
+    "mavlink-mappings-gen": {
+      "xml2js": "0.6.2"
+    }
+  }
+}

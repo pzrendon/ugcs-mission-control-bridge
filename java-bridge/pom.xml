@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ugcs</groupId>
+    <artifactId>ugcs-java-bridge</artifactId>
+    <version>1.0.0</version>
+    <name>ugcs-java-bridge</name>
+    <description>REST bridge between Node.js and UgCS Java SDK</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <javalin.version>6.7.0</javalin.version>
+        <slf4j.version>2.0.17</slf4j.version>
+    </properties>
+
+    <!-- UgCS SDK is published through JitPack according to the official README. -->
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Lightweight web server for Java REST endpoints. -->
+        <dependency>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin</artifactId>
+            <version>${javalin.version}</version>
+        </dependency>
+
+        <!-- UgCS Java SDK: provides Client, ClientSession, and protobuf domain objects. -->
+        <dependency>
+            <groupId>com.github.UgCS</groupId>
+            <artifactId>ugcs-java-sdk</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+
+        <!-- Simple logger implementation so logs print to console. -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Jackson JSON databind for JSON serialization/deserialization. -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.1</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+
+            <!-- Allows "mvn exec:java" for easy local run. -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.6.2</version>
+                <configuration>
+                    <mainClass>com.ugcs.bridge.App</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
