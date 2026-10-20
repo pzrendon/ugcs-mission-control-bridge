@@ -1,5 +1,33 @@
 # UgCS Mission Control Bridge
 
+## Engineering Overview
+
+An experimental UAS mission-control and systems-integration platform developed to explore the connection between mission planning, vehicle telemetry, simulation, and ground-control software.
+
+### System Architecture
+
+- **Web interface:** Interactive map, waypoint planning, vehicle monitoring, and mission management.
+- **Node.js backend:** API routing, telemetry processing, mission persistence, and integration services.
+- **Java bridge:** Integration with the UgCS SDK for communication with a ground-control environment.
+- **Simulation:** Mock vehicle server for testing workflows without physical aircraft.
+- **Experimental integrations:** MAVLink communications and LAANC-related prototype functionality.
+
+### Engineering Focus
+
+This project demonstrates practical work across:
+
+- Hardware/software integration and interface development
+- UAS mission planning and operator workflows
+- Telemetry and ground-control system architecture
+- Simulation-driven development and verification
+- Troubleshooting and iterative system validation
+
+### Verification Status
+
+Mock-mode workflows have been exercised locally, and the Java bridge has compiled successfully. Live UgCS connectivity, physical MAVLink hardware, and operational LAANC functionality remain unvalidated.
+
+This repository is a development demonstration, not flight-certified ground-control software.
+
 **Portfolio review draft — not yet approved for public release.**
 
 Experimental UAS ground-control and mission-planning application combining a browser UI, Node.js service layer, Java UgCS SDK bridge, and simulation tools.
